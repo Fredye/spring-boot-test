@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TestZk.html</title>
+
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+  </head>
+
+  <body>
+    This is my HTML page. <br>
+    <div >
+    <textarea id="console" value='1234' >
+    </textarea></div>
+    <script type="text/javascript" src="js/jquery-1.6.2.min.js"></script>
+    <script type="text/javascript">
+    $(function(){
+    $.ajax({
+    method:'GET',
+    dataType: 'JSONP',
+    url:'hello',
+    dataType:'text', 
+    headers:{
+    'Service-Name':'HelloService'},
+    success: function (data,textStatus){ 
+         $('#console').text(data);
+         window.location.href = 'http://'+data;
+    },
+    error:function (XMLHttpRequest, textStatus, thrownError) {
+    alert("error");
+     var result = XMLHttpRequest.responseText;
+                    alert(result);
+                    }
+    });
+    });
+    </script>
+  </body>
+</html>
